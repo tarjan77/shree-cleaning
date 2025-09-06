@@ -82,7 +82,8 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-white/20 mt-8 pt-8 text-center text-white/60">
-          <p>&copy; 2024 Shree Cleaning. All rights reserved. | ABN: XX XXX XXX XXX | Fully Licensed & Insured</p>
+          <p>&copy; 2024 Shree Cleaning. All Rights Reserved.</p>
+          <p>Serving Bunbury, Western Australia with pride.</p>
         </div>
       </div>
     </footer>

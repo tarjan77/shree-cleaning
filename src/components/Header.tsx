@@ -24,10 +24,17 @@ const Header = () => {
           </a>
         </nav>
 
-        <Button variant="default" className="gap-2">
-          <Phone size={18} />
-          <span className="hidden sm:inline">Call Now</span>
-        </Button>
+        <div className="flex items-center gap-3">
+          <Button variant="outline" size="sm" asChild className="gap-2">
+            <a href="#contact">
+              Get Free Quote
+            </a>
+          </Button>
+          <Button variant="default" className="gap-2">
+            <Phone size={18} />
+            <span className="hidden sm:inline">Call Now</span>
+          </Button>
+        </div>
       </div>
     </header>
   );

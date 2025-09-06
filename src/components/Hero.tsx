@@ -5,19 +5,21 @@ import heroImage from "@/assets/hero-cleaning.jpg";
 const Hero = () => {
   return (
     <section className="relative min-h-[600px] lg:min-h-[700px] text-white py-20 overflow-hidden">
-      {/* Background image */}
+      {/* Background image - visible on larger screens */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="hidden lg:block absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: `url(${heroImage})`,
         }}
       ></div>
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-hero-gradient opacity-90"></div>
+      {/* Gradient background for mobile */}
+      <div className="lg:hidden absolute inset-0 bg-hero-gradient"></div>
+      {/* Gradient overlay for larger screens */}
+      <div className="hidden lg:block absolute inset-0 bg-hero-gradient opacity-90"></div>
       {/* Dark overlay for better text readability */}
       <div className="absolute inset-0 bg-black/30"></div>
       
-      <div className="container mx-auto px-4 relative z-10 flex items-center min-h-[500px] lg:min-h-[600px]">
+      <div className="container mx-auto px-4 relative z-10 grid lg:grid-cols-2 gap-12 items-center min-h-[500px] lg:min-h-[600px]">
         <div className="max-w-2xl space-y-8">
           <div className="space-y-4">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
@@ -33,7 +35,7 @@ const Hero = () => {
           <div className="flex flex-wrap gap-4">
             <div className="flex items-center gap-2">
               <CheckCircle size={20} className="text-secondary" />
-              <span>Fully Insured</span>
+              <span>100% Satisfaction</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle size={20} className="text-secondary" />
@@ -63,9 +65,17 @@ const Hero = () => {
               View Services
             </Button>
           </div>
+        </div>
 
-          {/* Stats card positioned absolutely for larger screens */}
-          <div className="hidden lg:block absolute bottom-8 right-8 bg-white text-primary p-6 rounded-xl shadow-card">
+        {/* Hero image for larger screens */}
+        <div className="hidden lg:block relative">
+          <img 
+            src={heroImage} 
+            alt="Professional cleaning team in action" 
+            className="rounded-2xl shadow-glow w-full h-[500px] object-cover"
+          />
+          {/* Stats card */}
+          <div className="absolute -bottom-6 -left-6 bg-white text-primary p-6 rounded-xl shadow-card">
             <div className="text-2xl font-bold">500+</div>
             <div className="text-sm text-muted-foreground">Happy Customers</div>
           </div>

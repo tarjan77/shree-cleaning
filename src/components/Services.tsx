@@ -1,24 +1,37 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Home, Building2, Car, Sparkles, Clock, Shield } from "lucide-react";
-import residentialImage from "@/assets/residential-cleaning.jpg";
-import commercialImage from "@/assets/commercial-cleaning.jpg";
+import { Shield, Clock, CheckCircle, Home, Building, Key, Sofa, Sparkles, Star } from "lucide-react";
 
 const Services = () => {
   const services = [
     {
       icon: Home,
       title: "Residential Cleaning",
-      description: "Complete home cleaning services including kitchens, bathrooms, living areas, and bedrooms.",
-      image: residentialImage,
-      features: ["Weekly/Monthly Plans", "Deep Cleaning", "Move-in/Move-out", "Post-Construction"]
+      description: "From regular maintenance to deep cleans, we'll make your home in Bunbury shine. Kitchens, bathrooms, bedrooms - we cover it all."
     },
     {
-      icon: Building2,
+      icon: Building,
       title: "Commercial Cleaning", 
-      description: "Professional office and commercial space cleaning to maintain a productive work environment.",
-      image: commercialImage,
-      features: ["Office Buildings", "Retail Spaces", "Medical Facilities", "Schools & Universities"]
+      description: "Create a clean and healthy environment for your employees and customers. We offer tailored cleaning solutions for offices and retail spaces."
+    },
+    {
+      icon: Key,
+      title: "End of Lease Cleaning",
+      description: "Moving out? Our comprehensive end of lease cleaning will help you get your bond back. We follow a detailed checklist to ensure satisfaction."
+    },
+    {
+      icon: Sofa,
+      title: "Upholstery & Carpet",
+      description: "Revitalize your carpets and furniture. We use professional techniques to remove stains and odours, leaving them fresh and clean."
+    },
+    {
+      icon: Sparkles,
+      title: "Window Cleaning",
+      description: "Enjoy crystal clear views with our streak-free window cleaning service for both interior and exterior windows."
+    },
+    {
+      icon: Star,
+      title: "Custom Cleaning Jobs",
+      description: "Have a specific cleaning need? We can create a custom cleaning plan just for you. Get in touch to discuss your requirements."
     }
   ];
 
@@ -34,9 +47,9 @@ const Services = () => {
       description: "We work around your schedule with morning, afternoon, and weekend availability."
     },
     {
-      icon: Shield,
-      title: "Fully Insured",
-      description: "Complete insurance coverage gives you peace of mind with every cleaning service."
+      icon: CheckCircle,
+      title: "100% Satisfaction",
+      description: "We stand by our work. If you're not completely satisfied, we'll make it right."
     }
   ];
 
@@ -48,48 +61,23 @@ const Services = () => {
             Our Cleaning Services
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            From residential homes to commercial spaces, we provide comprehensive cleaning solutions 
-            tailored to your specific needs in Bunbury and surrounding areas.
+            We offer a wide range of services to meet your needs. We are flexible, reliable, and pay attention to every detail.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {services.map((service, index) => (
-            <Card key={index} className="group hover:shadow-card transition-all duration-300 overflow-hidden">
-              <div className="relative h-48 overflow-hidden">
-                <img 
-                  src={service.image} 
-                  alt={service.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-primary/20"></div>
-                <div className="absolute top-4 left-4 p-3 bg-white/90 rounded-xl">
-                  <service.icon size={24} className="text-primary" />
+            <Card key={index} className="group hover:shadow-card transition-smooth">
+              <CardHeader className="text-center pb-2">
+                <div className="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                  <service.icon className="w-8 h-8 text-primary" />
                 </div>
-              </div>
-              
-              <CardHeader>
-                <CardTitle className="text-2xl text-primary">{service.title}</CardTitle>
+                <CardTitle className="text-xl">{service.title}</CardTitle>
               </CardHeader>
-              
-              <CardContent className="space-y-4">
-                <p className="text-muted-foreground">{service.description}</p>
-                
-                <div className="space-y-2">
-                  <h4 className="font-semibold text-primary">What's Included:</h4>
-                  <ul className="grid grid-cols-2 gap-2">
-                    {service.features.map((feature, idx) => (
-                      <li key={idx} className="text-sm text-muted-foreground flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 bg-secondary rounded-full"></div>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                
-                <Button className="w-full mt-4" variant="outline">
-                  Learn More
-                </Button>
+              <CardContent className="text-center">
+                <p className="text-muted-foreground text-sm">
+                  {service.description}
+                </p>
               </CardContent>
             </Card>
           ))}
