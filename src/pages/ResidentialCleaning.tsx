@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowLeft, Home, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 import residentialImage from "@/assets/residential-cleaning.jpg";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -13,6 +14,10 @@ const ResidentialCleaning = () => {
     "Deep Cleaning",
     "Post-Construction"
   ];
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="min-h-screen">
@@ -71,7 +76,7 @@ const ResidentialCleaning = () => {
               <img 
                 src={residentialImage} 
                 alt="Residential cleaning service" 
-                className="rounded-2xl shadow-glow w-full h-[500px] object-cover"
+                className="rounded-2xl shadow-glow w-full h-[400px] object-cover"
               />
             </div>
           </div>

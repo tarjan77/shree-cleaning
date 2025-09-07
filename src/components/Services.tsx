@@ -1,7 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Clock, CheckCircle, Sparkles } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Clock, CheckCircle, Sparkles, Home, Building } from "lucide-react";
 import residentialImage from "@/assets/residential-cleaning.jpg";
 import commercialImage from "@/assets/commercial-cleaning.jpg";
 
@@ -53,8 +52,15 @@ const Services = () => {
 
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           {mainServices.map((service, index) => (
-            <Card key={index} className="group hover:shadow-card transition-smooth overflow-hidden">
-              <div className="aspect-video relative overflow-hidden">
+            <Card key={index} className="group hover:shadow-card transition-smooth overflow-hidden relative">
+              <div className="absolute top-6 left-6 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center z-10">
+                {service.title === "Residential Cleaning" ? (
+                  <Home className="w-6 h-6 text-primary" />
+                ) : (
+                  <Building className="w-6 h-6 text-primary" />
+                )}
+              </div>
+              <div className="aspect-[4/3] relative overflow-hidden">
                 <img 
                   src={service.image} 
                   alt={service.title} 
@@ -68,8 +74,54 @@ const Services = () => {
                 <p className="text-muted-foreground">
                   {service.description}
                 </p>
+                
+                <div>
+                  <h4 className="font-semibold text-primary mb-3">What's Included:</h4>
+                  <div className="grid grid-cols-2 gap-2">
+                    {service.title === "Residential Cleaning" ? (
+                      <>
+                        <div className="flex items-center gap-2">
+                          <CheckCircle size={16} className="text-primary" />
+                          <span className="text-sm">Weekly/Monthly Plans</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <CheckCircle size={16} className="text-primary" />
+                          <span className="text-sm">Deep Cleaning</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <CheckCircle size={16} className="text-primary" />
+                          <span className="text-sm">Move-in/Move-out</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <CheckCircle size={16} className="text-primary" />
+                          <span className="text-sm">Post-Construction</span>
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <div className="flex items-center gap-2">
+                          <CheckCircle size={16} className="text-primary" />
+                          <span className="text-sm">Office Buildings</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <CheckCircle size={16} className="text-primary" />
+                          <span className="text-sm">Retail Spaces</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <CheckCircle size={16} className="text-primary" />
+                          <span className="text-sm">Hotels & Restaurants</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <CheckCircle size={16} className="text-primary" />
+                          <span className="text-sm">Schools & Universities</span>
+                        </div>
+                      </>
+                    )}
+                  </div>
+                </div>
+                
                 <Button asChild variant="outline" className="w-full">
-                  <Link to={service.link}>Learn More</Link>
+                  <a href="#contact">Get Free Quote</a>
                 </Button>
               </CardContent>
             </Card>
