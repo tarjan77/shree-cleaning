@@ -12,7 +12,7 @@ const About = () => {
 
   return (
     <section id="about" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <div className="space-y-4">

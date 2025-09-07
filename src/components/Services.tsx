@@ -1,37 +1,23 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Shield, Clock, CheckCircle, Home, Building, Key, Sofa, Sparkles, Star } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Clock, CheckCircle, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
+import residentialImage from "@/assets/residential-cleaning.jpg";
+import commercialImage from "@/assets/commercial-cleaning.jpg";
 
 const Services = () => {
-  const services = [
+  const mainServices = [
     {
-      icon: Home,
       title: "Residential Cleaning",
-      description: "From regular maintenance to deep cleans, we'll make your home in Bunbury shine. Kitchens, bathrooms, bedrooms - we cover it all."
+      description: "From residential homes to commercial spaces, we provide comprehensive cleaning solutions tailored to your specific needs in Bunbury and surrounding areas.",
+      image: residentialImage,
+      link: "/residential-cleaning"
     },
     {
-      icon: Building,
       title: "Commercial Cleaning", 
-      description: "Create a clean and healthy environment for your employees and customers. We offer tailored cleaning solutions for offices and retail spaces."
-    },
-    {
-      icon: Key,
-      title: "End of Lease Cleaning",
-      description: "Moving out? Our comprehensive end of lease cleaning will help you get your bond back. We follow a detailed checklist to ensure satisfaction."
-    },
-    {
-      icon: Sofa,
-      title: "Upholstery & Carpet",
-      description: "Revitalize your carpets and furniture. We use professional techniques to remove stains and odours, leaving them fresh and clean."
-    },
-    {
-      icon: Sparkles,
-      title: "Window Cleaning",
-      description: "Enjoy crystal clear views with our streak-free window cleaning service for both interior and exterior windows."
-    },
-    {
-      icon: Star,
-      title: "Custom Cleaning Jobs",
-      description: "Have a specific cleaning need? We can create a custom cleaning plan just for you. Get in touch to discuss your requirements."
+      description: "Professional office and commercial space cleaning to maintain a productive work environment.",
+      image: commercialImage,
+      link: "/commercial-cleaning"
     }
   ];
 
@@ -55,29 +41,36 @@ const Services = () => {
 
   return (
     <section id="services" className="py-20 bg-section-gradient">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-4">
             Our Cleaning Services
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            We offer a wide range of services to meet your needs. We are flexible, reliable, and pay attention to every detail.
+            From residential homes to commercial spaces, we provide comprehensive cleaning solutions tailored to your specific needs in Bunbury and surrounding areas.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-          {services.map((service, index) => (
-            <Card key={index} className="group hover:shadow-card transition-smooth">
-              <CardHeader className="text-center pb-2">
-                <div className="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center mb-4">
-                  <service.icon className="w-8 h-8 text-primary" />
-                </div>
-                <CardTitle className="text-xl">{service.title}</CardTitle>
+        <div className="grid md:grid-cols-2 gap-8 mb-16">
+          {mainServices.map((service, index) => (
+            <Card key={index} className="group hover:shadow-card transition-smooth overflow-hidden">
+              <div className="aspect-video relative overflow-hidden">
+                <img 
+                  src={service.image} 
+                  alt={service.title} 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <CardHeader>
+                <CardTitle className="text-2xl text-primary">{service.title}</CardTitle>
               </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-muted-foreground text-sm">
+              <CardContent className="space-y-4">
+                <p className="text-muted-foreground">
                   {service.description}
                 </p>
+                <Button asChild variant="outline" className="w-full">
+                  <Link to={service.link}>Learn More</Link>
+                </Button>
               </CardContent>
             </Card>
           ))}

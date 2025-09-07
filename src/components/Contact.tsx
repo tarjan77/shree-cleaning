@@ -9,7 +9,7 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Call Us",
-      details: "+61 8 9721 XXXX",
+      details: "+61 452 135 542",
       subtitle: "Available 7 days a week"
     },
     {
@@ -34,7 +34,7 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-20 bg-section-gradient">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-4">
             Get Your Free Quote Today
@@ -134,7 +134,17 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-primary mb-1">{info.title}</h3>
-                      <p className="font-medium text-foreground">{info.details}</p>
+                      {info.title === "Call Us" ? (
+                        <a href={`tel:${info.details}`} className="font-medium text-foreground hover:text-primary transition-colors">
+                          {info.details}
+                        </a>
+                      ) : info.title === "Email Us" ? (
+                        <a href={`mailto:${info.details}`} className="font-medium text-foreground hover:text-primary transition-colors">
+                          {info.details}
+                        </a>
+                      ) : (
+                        <p className="font-medium text-foreground">{info.details}</p>
+                      )}
                       <p className="text-sm text-muted-foreground">{info.subtitle}</p>
                     </div>
                   </div>

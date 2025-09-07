@@ -3,7 +3,7 @@ import { Phone, Mail, MapPin, Facebook, Instagram, Star } from "lucide-react";
 const Footer = () => {
   return (
     <footer className="bg-primary text-white">
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
@@ -58,11 +58,15 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <Phone size={18} className="text-secondary" />
-                <span className="text-white/80">+61 8 9721 XXXX</span>
+                <a href="tel:+61452135542" className="text-white/80 hover:text-secondary transition-colors">
+                  +61 452 135 542
+                </a>
               </div>
               <div className="flex items-center gap-3">
                 <Mail size={18} className="text-secondary" />
-                <span className="text-white/80">hello@shreecleaning.com.au</span>
+                <a href="mailto:hello@shreecleaning.com.au" className="text-white/80 hover:text-secondary transition-colors">
+                  hello@shreecleaning.com.au
+                </a>
               </div>
               <div className="flex items-start gap-3">
                 <MapPin size={18} className="text-secondary mt-0.5" />
@@ -82,7 +86,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-white/20 mt-8 pt-8 text-center text-white/60">
-          <p>&copy; 2024 Shree Cleaning. All Rights Reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Shree Cleaning. All Rights Reserved.</p>
           <p>Serving Bunbury, Western Australia with pride.</p>
         </div>
       </div>

@@ -19,7 +19,7 @@ const Hero = () => {
       {/* Dark overlay for better text readability */}
       <div className="absolute inset-0 bg-black/30"></div>
       
-      <div className="container mx-auto px-4 relative z-10 grid lg:grid-cols-2 gap-12 items-center min-h-[500px] lg:min-h-[600px]">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid lg:grid-cols-2 gap-12 items-center min-h-[500px] lg:min-h-[600px]">
         <div className="max-w-2xl space-y-8">
           <div className="space-y-4">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
@@ -39,11 +39,11 @@ const Hero = () => {
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle size={20} className="text-secondary" />
-              <span>Eco-Friendly Products</span>
+              <span>Premium Quality</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle size={20} className="text-secondary" />
-              <span>100% Satisfaction Guaranteed</span>
+              <span>Flexible Scheduling</span>
             </div>
           </div>
 
@@ -57,12 +57,14 @@ const Hero = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button size="lg" variant="secondary" className="gap-2 text-lg px-8">
-              <Phone size={20} />
-              Get Free Quote
+            <Button size="lg" variant="secondary" className="gap-2 text-lg px-8" asChild>
+              <a href="#contact">
+                <Phone size={20} />
+                Get Free Quote
+              </a>
             </Button>
-            <Button size="lg" variant="outline" className="bg-white/10 border-white text-white hover:bg-white hover:text-primary">
-              View Services
+            <Button size="lg" variant="outline" className="bg-white/10 border-white text-white hover:bg-white hover:text-primary" asChild>
+              <a href="#services">View Services</a>
             </Button>
           </div>
         </div>

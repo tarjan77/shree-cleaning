@@ -4,7 +4,7 @@ import { Phone } from "lucide-react";
 const Header = () => {
   return (
     <header className="bg-background/95 backdrop-blur-sm border-b border-border sticky top-0 z-50">
-      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <div className="w-10 h-10 bg-hero-gradient rounded-lg flex items-center justify-center text-white font-bold text-xl">
             S
@@ -30,9 +30,11 @@ const Header = () => {
               Get Free Quote
             </a>
           </Button>
-          <Button variant="default" className="gap-2">
-            <Phone size={18} />
-            <span className="hidden sm:inline">Call Now</span>
+          <Button variant="default" className="gap-2" asChild>
+            <a href="tel:+61452135542">
+              <Phone size={18} />
+              <span className="hidden sm:inline">Call Now</span>
+            </a>
           </Button>
         </div>
       </div>
