@@ -8,7 +8,7 @@ const Services = () => {
   const mainServices = [
     {
       title: "Residential Cleaning",
-      description: "From residential homes to commercial spaces, we provide comprehensive cleaning solutions tailored to your specific needs in Bunbury and surrounding areas.",
+      description: "Complete home cleaning services including kitchens, bathrooms, living areas, and bedrooms.",
       image: residentialImage,
       link: "/residential-cleaning"
     },
@@ -53,25 +53,25 @@ const Services = () => {
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           {mainServices.map((service, index) => (
             <Card key={index} className="group hover:shadow-card transition-smooth overflow-hidden relative">
-              <div className="absolute top-6 left-6 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center z-10">
+              <div className="absolute top-4 left-4 w-12 h-12 bg-white rounded-lg flex items-center justify-center z-10 shadow-sm">
                 {service.title === "Residential Cleaning" ? (
                   <Home className="w-6 h-6 text-primary" />
                 ) : (
                   <Building className="w-6 h-6 text-primary" />
                 )}
               </div>
-              <div className="aspect-[4/3] relative overflow-hidden">
+              <div className="aspect-[16/9] relative overflow-hidden">
                 <img 
                   src={service.image} 
                   alt={service.title} 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <CardHeader>
-                <CardTitle className="text-2xl text-primary">{service.title}</CardTitle>
+              <CardHeader className="pb-4">
+                <CardTitle className="text-xl text-primary">{service.title}</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-muted-foreground">
+              <CardContent className="space-y-4 pt-0">
+                <p className="text-muted-foreground text-sm">
                   {service.description}
                 </p>
                 
