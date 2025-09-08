@@ -53,7 +53,7 @@ const Services = () => {
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           {mainServices.map((service, index) => (
             <Card key={index} className="group hover:shadow-card transition-smooth overflow-hidden relative">
-              <div className="absolute top-4 left-4 w-12 h-12 bg-white rounded-lg flex items-center justify-center z-10 shadow-sm">
+              <div className="absolute top-4 left-4 w-12 h-8 bg-white rounded-lg flex items-center justify-center z-10 shadow-sm">
                 {service.title === "Residential Cleaning" ? (
                   <Home className="w-6 h-6 text-primary" />
                 ) : (
