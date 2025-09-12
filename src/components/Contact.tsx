@@ -28,7 +28,7 @@ const Contact = () => {
       icon: Clock,
       title: "Business Hours",
       details: "Mon-Fri: 8AM-6PM",
-      subtitle: "Sat-Sun: 9AM-4PM"
+      subtitle: "Sat: 9AM-4PM"
     }
   ];
 
@@ -89,8 +89,9 @@ const Contact = () => {
                     <select className="w-full p-3 border border-input rounded-md bg-background">
                       <option>Residential Cleaning</option>
                       <option>Commercial Cleaning</option>
+                      <option>Pressure Cleaning</option>
                       <option>Deep Cleaning</option>
-                      <option>Move-in/Move-out</option>
+                      <option>Vacate Cleaning</option>
                       <option>Post-Construction</option>
                     </select>
                   </div>

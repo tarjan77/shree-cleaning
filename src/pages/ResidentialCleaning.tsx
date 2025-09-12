@@ -9,8 +9,8 @@ import Footer from "@/components/Footer";
 
 const ResidentialCleaning = () => {
   const services = [
-    "Weekly/Monthly Plans",
-    "Move-in/Move-out",
+    "Vacate Cleaning",
+    "Weekly/Monthly Plans", 
     "Deep Cleaning",
     "Post-Construction"
   ];

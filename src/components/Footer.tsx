@@ -31,11 +31,12 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="text-lg font-semibold">Our Services</h4>
             <ul className="space-y-2 text-white/80">
-              <li><a href="#" className="hover:text-secondary transition-colors">Residential Cleaning</a></li>
-              <li><a href="#" className="hover:text-secondary transition-colors">Commercial Cleaning</a></li>
-              <li><a href="#" className="hover:text-secondary transition-colors">Deep Cleaning</a></li>
-              <li><a href="#" className="hover:text-secondary transition-colors">Move-in/Move-out</a></li>
-              <li><a href="#" className="hover:text-secondary transition-colors">Post-Construction</a></li>
+              <li><a href="#services" className="hover:text-secondary transition-colors">Residential Cleaning</a></li>
+              <li><a href="#services" className="hover:text-secondary transition-colors">Commercial Cleaning</a></li>
+              <li><a href="#services" className="hover:text-secondary transition-colors">Pressure Cleaning</a></li>
+              <li><a href="#services" className="hover:text-secondary transition-colors">Deep Cleaning</a></li>
+              <li><a href="#services" className="hover:text-secondary transition-colors">Vacate Cleaning</a></li>
+              <li><a href="#services" className="hover:text-secondary transition-colors">Post-Construction</a></li>
             </ul>
           </div>
 

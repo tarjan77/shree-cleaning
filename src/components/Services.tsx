@@ -1,8 +1,9 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Clock, CheckCircle, Sparkles, Home, Building } from "lucide-react";
+import { Clock, CheckCircle, Sparkles, Home, Building, Droplets } from "lucide-react";
 import residentialImage from "@/assets/residential-cleaning.jpg";
 import commercialImage from "@/assets/commercial-cleaning.jpg";
+import pressureImage from "@/assets/pressure-cleaning.jpg";
 
 const Services = () => {
   const mainServices = [
@@ -17,6 +18,12 @@ const Services = () => {
       description: "Professional office and commercial space cleaning to maintain a productive work environment.",
       image: commercialImage,
       link: "/commercial-cleaning"
+    },
+    {
+      title: "Pressure Cleaning",
+      description: "High-pressure cleaning for driveways, patios, building exteriors, and outdoor surfaces.",
+      image: pressureImage,
+      link: "#contact"
     }
   ];
 
@@ -50,14 +57,16 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {mainServices.map((service, index) => (
             <Card key={index} className="group hover:shadow-card transition-smooth overflow-hidden relative">
               <div className="absolute top-4 left-4 w-12 h-8 bg-white rounded-lg flex items-center justify-center z-10 shadow-sm">
                 {service.title === "Residential Cleaning" ? (
                   <Home className="w-6 h-6 text-primary" />
-                ) : (
+                ) : service.title === "Commercial Cleaning" ? (
                   <Building className="w-6 h-6 text-primary" />
+                ) : (
+                  <Droplets className="w-6 h-6 text-primary" />
                 )}
               </div>
               <div className="aspect-[16/9] relative overflow-hidden">
@@ -82,6 +91,10 @@ const Services = () => {
                       <>
                         <div className="flex items-center gap-2">
                           <CheckCircle size={16} className="text-primary" />
+                          <span className="text-sm">Vacate Cleaning</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <CheckCircle size={16} className="text-primary" />
                           <span className="text-sm">Weekly/Monthly Plans</span>
                         </div>
                         <div className="flex items-center gap-2">
@@ -90,14 +103,10 @@ const Services = () => {
                         </div>
                         <div className="flex items-center gap-2">
                           <CheckCircle size={16} className="text-primary" />
-                          <span className="text-sm">Move-in/Move-out</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <CheckCircle size={16} className="text-primary" />
                           <span className="text-sm">Post-Construction</span>
                         </div>
                       </>
-                    ) : (
+                    ) : service.title === "Commercial Cleaning" ? (
                       <>
                         <div className="flex items-center gap-2">
                           <CheckCircle size={16} className="text-primary" />
@@ -114,6 +123,25 @@ const Services = () => {
                         <div className="flex items-center gap-2">
                           <CheckCircle size={16} className="text-primary" />
                           <span className="text-sm">Schools & Universities</span>
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <div className="flex items-center gap-2">
+                          <CheckCircle size={16} className="text-primary" />
+                          <span className="text-sm">Driveways & Patios</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <CheckCircle size={16} className="text-primary" />
+                          <span className="text-sm">Building Exteriors</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <CheckCircle size={16} className="text-primary" />
+                          <span className="text-sm">Concrete Surfaces</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <CheckCircle size={16} className="text-primary" />
+                          <span className="text-sm">Outdoor Areas</span>
                         </div>
                       </>
                     )}
