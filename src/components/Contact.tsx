@@ -87,12 +87,10 @@ const Contact = () => {
                       Service Type
                     </label>
                     <select className="w-full p-3 border border-input rounded-md bg-background">
-                      <option>Residential Cleaning</option>
-                      <option>Commercial Cleaning</option>
-                      <option>Pressure Cleaning</option>
-                      <option>Deep Cleaning</option>
-                      <option>Vacate Cleaning</option>
-                      <option>Post-Construction</option>
+                      <option>Residential</option>
+                      <option>Commercial</option>
+                      <option>Pressure</option>
+                      <option>Custom Package</option>
                     </select>
                   </div>
                   <div>
@@ -159,8 +157,10 @@ const Contact = () => {
                 <p className="mb-4 text-white/90">
                   Need urgent cleaning services? We offer same-day emergency cleaning for urgent situations.
                 </p>
-                <Button variant="secondary" size="sm" className="w-full">
-                  Call for Emergency Service
+                <Button variant="secondary" size="sm" className="w-full" asChild>
+                  <a href="tel:+61452135542">
+                    Call for Emergency Service
+                  </a>
                 </Button>
               </CardContent>
             </Card>
