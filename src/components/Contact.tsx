@@ -87,9 +87,9 @@ const Contact = () => {
                       Service Type
                     </label>
                     <select className="w-full p-3 border border-input rounded-md bg-background">
-                      <option>Residential</option>
-                      <option>Commercial</option>
-                      <option>Pressure</option>
+                      <option>Residential Cleaning</option>
+                      <option>Commercial Cleaning</option>
+                      <option>Pressure Cleaning</option>
                       <option>Custom Package</option>
                     </select>
                   </div>
