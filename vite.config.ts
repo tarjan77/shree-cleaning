@@ -13,7 +13,7 @@ export default defineConfig(({ mode }) => ({
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   base: "/shree-cleaning/",
   build: {
-    outDir: "build",
+    outDir: "dist", // Add this line
   },
   resolve: {
     alias: {
