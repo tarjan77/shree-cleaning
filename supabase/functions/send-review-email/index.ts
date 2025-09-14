@@ -9,14 +9,12 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type",
 };
 
-interface QuoteEmailRequest {
-  fullName: string;
-  phone: string;
+interface ReviewEmailRequest {
+  name: string;
   email: string;
-  propertyAddress: string;
-  serviceType: string;
-  frequency: string;
-  additionalDetails: string;
+  area: string;
+  rating: number;
+  comment: string;
 }
 
 const handler = async (req: Request): Promise<Response> => {
@@ -27,42 +25,39 @@ const handler = async (req: Request): Promise<Response> => {
 
   try {
     const {
-      fullName,
-      phone,
+      name,
       email,
-      propertyAddress,
-      serviceType,
-      frequency,
-      additionalDetails,
-    }: QuoteEmailRequest = await req.json();
+      area,
+      rating,
+      comment,
+    }: ReviewEmailRequest = await req.json();
 
-    console.log("Received quote request:", { fullName, email, serviceType });
+    console.log("Received review submission:", { name, email, area, rating });
 
     const emailResponse = await resend.emails.send({
-      from: "Shree Cleaning <onboarding@resend.dev>",
+      from: "Shree Cleaning Reviews <onboarding@resend.dev>",
       to: ["info@shreecleaning.com"],
-      subject: `New Quote Request from ${fullName}`,
+      subject: `New Review from ${name} - ${rating} Stars`,
       html: `
-        <h1>New Quote Request</h1>
+        <h1>New Customer Review</h1>
         <h2>Customer Information</h2>
-        <p><strong>Name:</strong> ${fullName}</p>
-        <p><strong>Phone:</strong> ${phone}</p>
+        <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Property Address:</strong> ${propertyAddress || 'Not provided'}</p>
+        <p><strong>Area:</strong> ${area}</p>
         
-        <h2>Service Details</h2>
-        <p><strong>Service Type:</strong> ${serviceType}</p>
-        <p><strong>Frequency:</strong> ${frequency}</p>
+        <h2>Review Details</h2>
+        <p><strong>Rating:</strong> ${'★'.repeat(rating)}${'☆'.repeat(5-rating)} (${rating}/5 stars)</p>
         
-        <h2>Additional Details</h2>
-        <p>${additionalDetails || 'No additional details provided'}</p>
+        <h2>Customer Comment</h2>
+        <p>${comment}</p>
         
         <hr>
-        <p><em>This quote request was submitted through the Shree Cleaning website contact form.</em></p>
+        <p><em>This review was submitted through the Shree Cleaning website testimonials section.</em></p>
+        <p><em>Please verify this customer before publishing the review.</em></p>
       `,
     });
 
-    console.log("Email sent successfully:", emailResponse);
+    console.log("Review email sent successfully:", emailResponse);
 
     return new Response(JSON.stringify({ success: true }), {
       status: 200,
@@ -72,7 +67,7 @@ const handler = async (req: Request): Promise<Response> => {
       },
     });
   } catch (error: any) {
-    console.error("Error in send-quote-email function:", error);
+    console.error("Error in send-review-email function:", error);
     return new Response(
       JSON.stringify({ error: error.message }),
       {

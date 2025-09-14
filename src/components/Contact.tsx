@@ -80,7 +80,7 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email Us",
-      details: "hello@shreecleaning.com.au",
+      details: "info@shreecleaning.com",
       subtitle: "We'll respond within 24 hours"
     },
     {

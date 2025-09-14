@@ -65,8 +65,8 @@ const Footer = () => {
               </div>
               <div className="flex items-center gap-3">
                 <Mail size={18} className="text-secondary" />
-                <a href="mailto:hello@shreecleaning.com.au" className="text-white/80 hover:text-secondary transition-colors">
-                  hello@shreecleaning.com.au
+                <a href="mailto:info@shreecleaning.com" className="text-white/80 hover:text-secondary transition-colors">
+                  info@shreecleaning.com
                 </a>
               </div>
               <div className="flex items-start gap-3">
