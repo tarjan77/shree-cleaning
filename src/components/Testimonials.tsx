@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -45,6 +46,12 @@ const Testimonials = () => {
       name: "David Rodriguez",
       area: "Dalyellup",
       comment: "Great value for money. The deep clean they did before we moved in was exceptional. Every corner was spotless. Will definitely use them again.",
+      rating: 5
+    },
+    {
+      name: "Hannah Lee",
+      area: "South Bunbury",
+      comment: "Super friendly team and top-notch results every time. Booking is easy and they always go the extra mile!",
       rating: 5
     }
   ];
@@ -195,34 +202,38 @@ const Testimonials = () => {
           </Dialog>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {testimonials.map((testimonial, index) => (
-            <Card key={index} className="relative">
-              <CardContent className="p-6">
-                <Quote className="text-primary/20 mb-4" size={32} />
-                <p className="text-muted-foreground mb-4 leading-relaxed">
-                  "{testimonial.comment}"
-                </p>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-                      <User className="text-primary" size={18} />
-                    </div>
-                    <div>
-                      <p className="font-semibold text-primary">{testimonial.name}</p>
-                      <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                        <MapPin size={12} />
-                        {testimonial.area}
+        <div className="relative">
+          <Carousel className="w-full">
+            <CarouselContent>
+              {testimonials.map((testimonial, index) => (
+                <CarouselItem key={index} className="basis-full md:basis-1/2 lg:basis-1/3">
+                  <Card className="relative h-full">
+                    <CardContent className="p-6 h-full flex flex-col">
+                      <Quote className="text-primary/20 mb-4" size={32} />
+                      <p className="text-muted-foreground mb-4 leading-relaxed">"{testimonial.comment}"</p>
+                      <div className="mt-auto flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+                            <User className="text-primary" size={18} />
+                          </div>
+                          <div>
+                            <p className="font-semibold text-primary">{testimonial.name}</p>
+                            <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                              <MapPin size={12} />
+                              {testimonial.area}
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex gap-1">{renderStars(testimonial.rating)}</div>
                       </div>
-                    </div>
-                  </div>
-                  <div className="flex gap-1">
-                    {renderStars(testimonial.rating)}
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+                    </CardContent>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
         </div>
       </div>
     </section>
