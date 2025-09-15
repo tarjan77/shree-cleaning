@@ -1,13 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Phone } from "lucide-react";
-import logo from "@/assets/logo-red.png";
 
 const Header = () => {
   return (
     <header className="bg-background/95 backdrop-blur-sm border-b border-border sticky top-0 z-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <img src={logo} alt="Shree Cleaning Logo" className="w-10 h-10" />
+          <img src="/logo-red.png" alt="Shree Cleaning Logo" className="w-10 h-10" />
           <h1 className="text-2xl font-bold text-primary">Shree Cleaning</h1>
         </div>
         

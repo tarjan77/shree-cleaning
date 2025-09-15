@@ -1,5 +1,4 @@
 import { Phone, Mail, MapPin, Facebook, Instagram, Star } from "lucide-react";
-import logo from "@/assets/logo-red.png";
 
 const Footer = () => {
   return (
@@ -9,7 +8,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <img src={logo} alt="Shree Cleaning Logo" className="w-10 h-10 rounded-lg" />
+              <img src="/logo-red.png" alt="Shree Cleaning Logo" className="w-10 h-10 rounded-lg" />
               <h3 className="text-2xl font-bold">Shree Cleaning</h3>
             </div>
             <p className="text-white/80 leading-relaxed">

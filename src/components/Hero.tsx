@@ -5,19 +5,17 @@ import heroImage from "@/assets/hero-cleaning.jpg";
 const Hero = () => {
   return (
     <section className="relative min-h-[600px] lg:min-h-[700px] text-white py-20 overflow-hidden">
-      {/* Background image - visible on larger screens */}
+      {/* Background image - visible on all screens */}
       <div 
-        className="hidden lg:block absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: `url(${heroImage})`,
         }}
       ></div>
-      {/* Gradient background for mobile */}
-      <div className="lg:hidden absolute inset-0 bg-hero-gradient"></div>
-      {/* Gradient overlay for larger screens */}
-      <div className="hidden lg:block absolute inset-0 bg-hero-gradient opacity-90"></div>
-      {/* Dark overlay for better text readability */}
-      <div className="absolute inset-0 bg-black/30"></div>
+      {/* Gradient overlay for better text readability */}
+      <div className="absolute inset-0 bg-hero-gradient opacity-90"></div>
+      {/* Subtle dark overlay */}
+      <div className="absolute inset-0 bg-black/20"></div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid lg:grid-cols-2 gap-12 items-center min-h-[500px] lg:min-h-[600px]">
         <div className="max-w-2xl space-y-8">

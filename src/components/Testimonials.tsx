@@ -27,31 +27,49 @@ const Testimonials = () => {
     {
       name: "Sarah Thompson",
       area: "Bunbury Central",
-      comment: "Absolutely outstanding service! The team arrived on time and left my home spotless. Their attention to detail is incredible. I've been using Shree Cleaning for 6 months now and they never disappoint.",
+      comment: "Bloody brilliant job! Rocked up on time and smashed it. House looks mint — bathrooms are sparkling. Legends.",
       rating: 5
     },
     {
       name: "Michael Chen",
       area: "Australind",
-      comment: "Professional, reliable, and thorough. They cleaned our office space perfectly and were very respectful of our work environment. Highly recommend for commercial cleaning.",
+      comment: "Top-notch, no mucking about. Office was spotless and they worked around our crew easy as. Cheers team!",
       rating: 5
     },
     {
       name: "Emma Wilson",
       area: "Eaton",
-      comment: "I was struggling to keep up with house cleaning after my surgery. Shree Cleaning has been a lifesaver! They're so understanding and flexible with scheduling.",
+      comment: "Had a rough couple weeks and these guys just sorted it. Place smells fresh and looks ace. Proper helpful mob.",
       rating: 5
     },
     {
-      name: "David Rodriguez",
+      name: "Dave R.",
       area: "Dalyellup",
-      comment: "Great value for money. The deep clean they did before we moved in was exceptional. Every corner was spotless. Will definitely use them again.",
+      comment: "Pre-move deep clean was spot on. Not a speck left behind. Worth every dollar — saved us heaps of time.",
       rating: 5
     },
     {
-      name: "Hannah Lee",
+      name: "Hannah L.",
       area: "South Bunbury",
-      comment: "Super friendly team and top-notch results every time. Booking is easy and they always go the extra mile!",
+      comment: "Friendly as, easy to book, and they really get stuck in. House looks schmick every time.",
+      rating: 5
+    },
+    {
+      name: "Jess & Tom",
+      area: "Glen Iris",
+      comment: "We’ve got two little terrors and a dog — they still got the carpets looking brand new. Absolute lifesavers!",
+      rating: 5
+    },
+    {
+      name: "Nikhil Shah",
+      area: "Withers",
+      comment: "Booked a last‑minute clean before a rental inspection — passed easy. Quick, tidy, no dramas.",
+      rating: 5
+    },
+    {
+      name: "Aimee",
+      area: "East Bunbury",
+      comment: "Mum recommended them and now I see why. Kitchen tiles are shining and the shower screen is crystal. Too good!",
       rating: 5
     }
   ];
@@ -202,11 +220,11 @@ const Testimonials = () => {
           </Dialog>
         </div>
 
-        <div className="relative">
-          <Carousel className="w-full">
+        <div className="relative overflow-hidden">
+          <Carousel className="w-full px-2 sm:px-4" opts={{ align: "start", loop: false }}>
             <CarouselContent>
               {testimonials.map((testimonial, index) => (
-                <CarouselItem key={index} className="basis-full md:basis-1/2 lg:basis-1/3">
+                <CarouselItem key={index} className="basis-[90%] sm:basis-[65%] lg:basis-[40%]">
                   <Card className="relative h-full">
                     <CardContent className="p-6 h-full flex flex-col">
                       <Quote className="text-primary/20 mb-4" size={32} />
@@ -231,8 +249,8 @@ const Testimonials = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
+            <CarouselPrevious className="left-2 top-1/2 -translate-y-1/2 z-10 bg-background/80 border-border shadow" />
+            <CarouselNext className="right-2 top-1/2 -translate-y-1/2 z-10 bg-background/80 border-border shadow" />
           </Carousel>
         </div>
       </div>
